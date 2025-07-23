@@ -1,4 +1,4 @@
-package appcaravanacloud;
+package leo.almeida;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

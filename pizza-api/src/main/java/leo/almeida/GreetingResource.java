@@ -1,4 +1,4 @@
-package appcaravanacloud;
+package leo.almeida;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
