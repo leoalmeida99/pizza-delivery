@@ -28,6 +28,7 @@ public class PizzaResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Pizza> getAll() {
-        return Pizza.listAll();
+        List<Pizza> pizzas = Pizza.listAll();
+        return pizzas;
     }
 }
