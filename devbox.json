@@ -7,7 +7,7 @@
       "quarkus@latest",
       "awscli2@latest",
       "direnv@latest",
-      "mysql-client@latest",
+      "postgresql@latest",
       "flyway@latest"
     ],
   
