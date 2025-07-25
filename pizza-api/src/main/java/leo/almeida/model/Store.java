@@ -15,6 +15,7 @@ public class Store extends PanacheEntity {
         Store store = new Store();
         store.name = name;
         store.code = code;
+        store.persist();
 
         return store;
     }
