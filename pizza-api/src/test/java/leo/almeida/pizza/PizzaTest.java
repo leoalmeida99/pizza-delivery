@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import io.quarkus.logging.Log;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -47,13 +48,15 @@ public class PizzaTest {
     }
 
     @Test
-    public void TestOrderPizzaFlow() {
+    public void testFindNearestStore() {
         // given dado uma variavel
         Location location = Location.current();
         // when fazer alguma operação com essa variavel
         Store store = Store.findNearest(location);
         // then fazer alguma verificação com os asserts
         assertNotNull(store);
+
+        Log.infof("[id: " + store.id + ", store name: " + store.name + "]");
     }
 
 }
