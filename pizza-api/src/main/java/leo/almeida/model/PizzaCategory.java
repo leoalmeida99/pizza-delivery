@@ -15,14 +15,11 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Category extends PanacheEntity {
+public class PizzaCategory extends PanacheEntity {
     public String name;
 
     @Column(precision = 10, scale = 2)
     public BigDecimal price; 
-
-    public Category() {
-    }
 
     @ManyToOne
     public Store store;
@@ -37,11 +34,15 @@ public class Category extends PanacheEntity {
     )
     public List<Pizza> pizzas;
 
-    public static Category persist(Store store, String name) {
-        Category category = new Category();
+    public PizzaCategory() {
+    }
+
+    public static PizzaCategory persist(Store store, String name, String price) {
+        PizzaCategory category = new PizzaCategory();
         category.name = name;
         category.store = store;
-        category.pizzas = new ArrayList<>();     
+        category.pizzas = new ArrayList<>();
+        category.price = new BigDecimal(price);
         category.persist();
 
         return category;
@@ -51,8 +52,8 @@ public class Category extends PanacheEntity {
         this.pizzas.addAll(pizzas);
     }
 
-    public static List<Category> listByStore(Store store) {
-        List<Category> result = list("store", Sort.by("price").ascending(), store);
+    public static List<PizzaCategory> listByStore(Store store) {
+        List<PizzaCategory> result = list("store", Sort.by("price").ascending(), store);
         return result;
     }
 
