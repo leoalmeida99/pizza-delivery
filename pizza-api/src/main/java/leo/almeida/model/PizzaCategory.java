@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.panache.common.Sort;
 import jakarta.persistence.CascadeType;
@@ -23,6 +25,7 @@ public class PizzaCategory extends PanacheEntity {
     public BigDecimal price; 
 
     @ManyToOne
+    @JsonIgnore
     public Store store;
 
     @ManyToMany(cascade = {

@@ -25,7 +25,7 @@ public class PizzaResource {
     @Path("tudo")
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, Object> pegarTudo() {
-        Store store = Store.findNearest(null);
+        Store store = Store.findNearest();
         List<PizzaCategory> categories = PizzaCategory.listByStore(store);
         Map<String, Object> result = Map.of(
                 "store" , store,
