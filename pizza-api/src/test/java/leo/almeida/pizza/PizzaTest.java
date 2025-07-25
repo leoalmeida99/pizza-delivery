@@ -26,7 +26,7 @@ public class PizzaTest {
     @Transactional
     public static void beforeAll() {
         Store store = new Store();
-        store.name = "Pizza Portuguesa";
+        store.name = "Pizzaria Romanesca";
         store.code = "__default__";
         store.persist();
     }
