@@ -1,4 +1,4 @@
-package leo.almeida.main;
+package leo.almeida;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.annotations.QuarkusMain;

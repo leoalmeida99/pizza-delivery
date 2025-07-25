@@ -19,6 +19,10 @@ public class Store extends PanacheEntity {
         return store;
     }
 
+    public static Store findNearest() {
+        return findNearest(Location.current());
+    }
+
     public static Store findNearest(Location location) {
         Store store = Store.find("code", "__default__").firstResult();
 

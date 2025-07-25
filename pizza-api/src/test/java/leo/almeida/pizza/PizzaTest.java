@@ -5,13 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.logging.Log;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import leo.almeida.model.Location;
 import leo.almeida.model.Pizza;
 import leo.almeida.model.Store;
@@ -22,15 +20,6 @@ import leo.almeida.rs.PizzaResource;
 public class PizzaTest {
     @Inject
     PizzaResource pizzaResource;
-
-    @BeforeAll
-    @Transactional
-    public static void beforeAll() {
-        Store store = new Store();
-        store.name = "Pizzaria Romanesca";
-        store.code = "__default__";
-        store.persist();
-    }
 
     @Test
     public void testSanity() {
