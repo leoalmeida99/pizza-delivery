@@ -11,6 +11,14 @@ public class Store extends PanacheEntity {
     public Store() {
     }
 
+    public static Store persist(String name, String code) {
+        Store store = new Store();
+        store.name = name;
+        store.code = code;
+
+        return store;
+    }
+
     public static Store findNearest(Location location) {
         Store store = Store.find("code", "__default__").firstResult();
 
