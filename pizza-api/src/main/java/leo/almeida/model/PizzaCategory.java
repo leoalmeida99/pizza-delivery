@@ -2,6 +2,7 @@ package leo.almeida.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -49,7 +50,7 @@ public class PizzaCategory extends PanacheEntity {
     }
 
     public void addPizzas(Pizza... ps) {
-        this.pizzas.addAll(pizzas);
+        this.pizzas.addAll(Arrays.asList(ps));
     }
 
     public static List<PizzaCategory> listByStore(Store store) {
