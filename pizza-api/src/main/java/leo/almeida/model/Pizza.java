@@ -10,6 +10,14 @@ public class Pizza extends PanacheEntity {
     public Pizza() {
     }
 
+    public static Pizza persist(String description) {
+        Pizza pizza = new Pizza();
+        pizza.description = description;
+        pizza.persist();
+
+        return pizza;
+    }
+
     @Override
     public String toString() {
         return "Pizza [description=" + description + "]";
