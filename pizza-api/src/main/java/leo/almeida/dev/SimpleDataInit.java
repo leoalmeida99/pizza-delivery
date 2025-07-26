@@ -1,16 +1,24 @@
 package leo.almeida.dev;
 
+import io.quarkus.runtime.LaunchMode;
 import io.quarkus.runtime.StartupEvent;
 import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import leo.almeida.model.Pizza;
 import leo.almeida.model.PizzaCategory;
 import leo.almeida.model.Store;
 
 public class SimpleDataInit {
+    @Inject
+    LaunchMode mode;
 
     @Transactional
     public void init(@Observes StartupEvent ev) {
+        if (LaunchMode.NORMAL.equals(mode)) {
+            return;
+        }
+
         Store storeRomanesca = Store.persist("Pizzaria Romanesca", "__default__");
 
         PizzaCategory categoryTradicional = PizzaCategory.persist(storeRomanesca, "Tradicional", "10.99");
