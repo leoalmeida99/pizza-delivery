@@ -16,6 +16,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.transaction.Transactional;
 
 @Entity
 public class PizzaCategory extends PanacheEntity {
@@ -41,6 +42,7 @@ public class PizzaCategory extends PanacheEntity {
     public PizzaCategory() {
     }
 
+    @Transactional
     public static PizzaCategory persist(Store store, String name, String price) {
         PizzaCategory category = new PizzaCategory();
         category.name = name;
